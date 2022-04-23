@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "mccr": "/*Test*/",
+        "port.h": "c",
+        "dio_regs.h": "c",
+        "std_types.h": "c"
+    }
+}

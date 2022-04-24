@@ -44,18 +44,18 @@ const Port_ConfigType Port_Configuration = {
 
       PORT_A_NUM,                         /* PORT Number                    [ PORT_A_NUM - PORT_B_NUM - PORT_C_NUM - PORT_D_NUM - PORT_E_NUM - PORT_F_NUM] */
       PORTA_PIN_0,                        /* PIN Number                     [ PORTA_PIN_0 :       PORTF_PIN_4                                          ] */
-      PIN_DIO_MODE,                       /* PIN Mode                       [ PIN_DIO MODE - PIN_ANALOG_MODE - Others] */
+      PIN_ANALOG_MODE,                    /* PIN Mode                       [ PIN_DIO MODE - PIN_ANALOG_MODE - Others] */
       PORT_PIN_OUT,                       /* PIN Direction                  [ PORT_PIN_IN - PORT_PIN_OUT] */
       OFF,                                /* PIN Resistor                   [ OFF - PULL_UP - PULL_DOWN ]*/
-      STD_OFF,                            /* PIN INITIAL VALUE              [ STD_OFF - STD_ON ] */
+      STD_ON,                             /* PIN INITIAL VALUE              [ STD_OFF - STD_ON ] */
       STD_OFF,                            /* PIN Direction Changeable       [ STD_OFF - STD_ON] */
       STD_OFF,                            /* PIN Mode Changeable            [ STD_OFF - STD_ON] */
         
       PORT_A_NUM,                         /* PORT Number                    [ PORT_A_NUM - PORT_B_NUM - PORT_C_NUM - PORT_D_NUM - PORT_E_NUM - PORT_F_NUM] */
       PORTA_PIN_1,                        /* PIN Number                     [ PORTA_PIN_0 :       PORTF_PIN_4                                          ] */
-      PIN_DIO_MODE,                       /* PIN Mode                       [ PIN_DIO MODE - PIN_ANALOG_MODE - Others] */
-      PORT_PIN_OUT,                       /* PIN Direction                  [ PORT_PIN_IN - PORT_PIN_OUT] */
-      OFF,                                /* PIN Resistor                   [ OFF - PULL_UP - PULL_DOWN ]*/
+      PIN_A1_U0Tx_Mode,                   /* PIN Mode                       [ PIN_DIO MODE - PIN_ANALOG_MODE - Others] */
+      PORT_PIN_IN,                        /* PIN Direction                  [ PORT_PIN_IN - PORT_PIN_OUT] */
+      PULL_DOWN,                            /* PIN Resistor                   [ OFF - PULL_UP - PULL_DOWN ]*/
       STD_OFF,                            /* PIN INITIAL VALUE              [ STD_OFF - STD_ON ] */
       STD_OFF,                            /* PIN Direction Changeable       [ STD_OFF - STD_ON] */
       STD_OFF,                            /* PIN Mode Changeable            [ STD_OFF - STD_ON] */
@@ -423,9 +423,9 @@ const Port_ConfigType Port_Configuration = {
       PORT_F_NUM,                         /* PORT Number                    [ PORT_A_NUM - PORT_B_NUM - PORT_C_NUM - PORT_D_NUM - PORT_E_NUM - PORT_F_NUM] */
       PORTF_PIN_4,                        /* PIN Number                     [ PORTA_PIN_0 :       PORTF_PIN_4                                          ] */
       PIN_DIO_MODE,                       /* PIN Mode                       [ PIN_DIO MODE - PIN_ANALOG_MODE - Others] */
-      PORT_PIN_OUT,                       /* PIN Direction                  [ PORT_PIN_IN - PORT_PIN_OUT] */
-      OFF,                                /* PIN Resistor                   [ OFF - PULL_UP - PULL_DOWN ]*/
+      PORT_PIN_IN,                        /* PIN Direction                  [ PORT_PIN_IN - PORT_PIN_OUT] */
+      PULL_UP,                            /* PIN Resistor                   [ OFF - PULL_UP - PULL_DOWN ]*/
       STD_OFF,                            /* PIN INITIAL VALUE              [ STD_OFF - STD_ON ] */
       STD_OFF,                            /* PIN Direction Changeable       [ STD_OFF - STD_ON] */
-      STD_OFF                            /* PIN Mode Changeable            [ STD_OFF - STD_ON] */
+      STD_OFF                             /* PIN Mode Changeable            [ STD_OFF - STD_ON] */
 };

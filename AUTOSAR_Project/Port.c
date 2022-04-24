@@ -124,9 +124,6 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
 				
 				/* Disable Alternative function for this pin by clear the corresponding bit in GPIOAFSEL register */
 				CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)Port_BASE_Address_Ptr + PORT_ALT_FUNC_REG_OFFSET) , ConfigPtr->CONFIGURED_PINS[counter].pin_num); 
-
-				/*  Clear the PMCx bits for this pin */  
-			   *(volatile uint32 *)((volatile uint8 *)Port_BASE_Address_Ptr + PORT_CTL_REG_OFFSET) &= ~(0x0000000F << (ConfigPtr->CONFIGURED_PINS[counter].pin_num * 4));
 			
 			}
 			/*Check if the PIN is Analog Configured*/
@@ -141,8 +138,7 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
 			    /* Disable Alternative function for this pin by clear the corresponding bit in GPIOAFSEL register */
 				CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)Port_BASE_Address_Ptr + PORT_ALT_FUNC_REG_OFFSET) , ConfigPtr->CONFIGURED_PINS[counter].pin_num);  	
 
-			    /* Clear the PMCx bits for this pin */  
-			   *(volatile uint32 *)((volatile uint8 *)Port_BASE_Address_Ptr + PORT_CTL_REG_OFFSET) &= ~(0x0000000F << (ConfigPtr->CONFIGURED_PINS[counter].pin_num * 4));			
+			    			
 			}
 			/*Check if the pin configured as an Alternative Function*/
 			else
@@ -155,10 +151,12 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
 
 			    /* Enable Alternative function for this pin by clear the corresponding bit in GPIOAFSEL register */
 				SET_BIT(*(volatile uint32 *)((volatile uint8 *)Port_BASE_Address_Ptr + PORT_ALT_FUNC_REG_OFFSET) , ConfigPtr->CONFIGURED_PINS[counter].pin_num); 
-
-				/*Add Mode -  Clear the PMCx bits for this pin */   /* To be Changed*/
-			   *(volatile uint32 *)((volatile uint8 *)Port_BASE_Address_Ptr + PORT_CTL_REG_OFFSET) &= ~(0x0000000F << (ConfigPtr->CONFIGURED_PINS[counter].pin_num * 4));     
 			}
+
+			   /* Set Pin Mode for this pin */  
+			   *(volatile uint32 *)((volatile uint8 *)Port_BASE_Address_Ptr + PORT_CTL_REG_OFFSET) = ( *(volatile uint32 *)((volatile uint8 *)Port_BASE_Address_Ptr + PORT_CTL_REG_OFFSET)\
+			    & ( ~(0x0000000F << (ConfigPtr->CONFIGURED_PINS[counter].pin_num * 4) ) ) ) \
+				| (ConfigPtr->CONFIGURED_PINS[counter].mode << (ConfigPtr->CONFIGURED_PINS[counter].pin_num * 4) );
 
 
 		   /* Check if the PIN is configured as Output pin*/
